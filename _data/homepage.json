@@ -2,7 +2,11 @@
   "announcement": {
     "display": true,
     "dismissible": false,
-    "content": "Pieces go up for auction starting January 15th, 2022"
+    "content": "Auction starting January 15th, 2022 on Opensea",
+    "link": {
+      "external": true,
+      "url": "https://opensea.io/collection/moon-rocks-connell"
+    }
   },
   "twitter": {
     "content": "Follow on Twitter to stay up to date with future drops"

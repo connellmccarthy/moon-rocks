@@ -1,0 +1,29 @@
+<button id="asset-{{ item.slug }}-trigger" class="btn btn__primary dark circle player-controls">
+  <i id="asset-{{ item.slug }}-trigger-icon" class="fas fa-play"></i>
+  <span class="visually-hidden">Play video</span>
+</button>
+<script>
+  document.getElementById('asset-{{ item.slug }}-trigger').addEventListener('click', () => {
+    if (video.playing) {
+      if (video.element == document.getElementById('asset-{{ item.slug }}')) {
+        video.element.pause();
+        document.getElementById('asset-{{ item.slug }}-trigger-icon').classList.replace('fa-pause', 'fa-play');
+        video.playing = false;
+      } else {
+        video.element.pause();
+        document.getElementById(`asset-${video.id}-trigger-icon`).classList.replace('fa-pause', 'fa-play');
+
+        video.element = document.getElementById('asset-{{ item.slug }}');
+        video.id = '{{ item.slug }}';
+        video.element.play();
+        document.getElementById('asset-{{ item.slug }}-trigger-icon').classList.replace('fa-play', 'fa-pause');
+      }
+    } else {
+      video.playing = true;
+      video.element = document.getElementById('asset-{{ item.slug }}');
+      video.id = '{{ item.slug }}';
+      video.element.play();
+      document.getElementById('asset-{{ item.slug }}-trigger-icon').classList.replace('fa-play', 'fa-pause');
+    }
+  });
+</script>

@@ -10,11 +10,20 @@ permalink: /
   <p class="large">The music and digital renders of each piece were crafted individually to create a unique and captivating experience.</p>
 </div>
 
-<div class="section slim">
+<div class="section slim grid">
   {% for item in site.items %}
-    <img height="100" src="{{ item.thumbnail }}">
-    {{ item.title }}
-    <a href="{{ item.url }}">View more information</a>
+    <div class="item__container">
+      <div class="item__asset">
+        <video id="asset-{{ item.slug }}" preload="auto" poster="{{ item.asset.poster }}" loop>
+          <source src="{{ item.asset.src }}" type="video/webm">
+        </video>
+        {% include player-controls.html %}
+      </div>
+      <div class="item__info">
+       <h2>{{ item.title }}</h2>
+        <a href="{{ item.url }}">More information</a>
+      </div>
+    </div>
   {% endfor %}
 </div>
 

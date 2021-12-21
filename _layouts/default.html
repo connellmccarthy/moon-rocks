@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{ site.title }} &#8212; {{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    {% include head.html %}
   </head>
   <body>
+    {% include loading.html %}
     {% include banner.html %}
     {% include logo.html %}
     {{ content }}
     {% include footer.html %}
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>

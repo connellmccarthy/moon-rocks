@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include loading.html %}
+    {% include banner.html %}
+    {% include logo.html %}
+
+    {% assign item = page %}
+    
+    <div class="section slim grid two">
+      <div class="item__asset border">
+        <video id="asset-{{ item.slug }}" preload="auto" poster="{{ item.asset.poster }}" loop>
+          <source src="{{ item.asset.src }}" type="video/webm">
+        </video>
+        {% include player-controls.html %}
+      </div>
+      <div class="item__contents">
+        <div class="item__contents__main">
+          <h1>{{ item.title }}</h1>
+          <p class="muted">Created on {{ item.date_created | date: "%B %d, %Y" }}</p>
+          <p class="desc muted">{{ item.description }}</p>
+
+          {% if item.link %}
+            <a class="btn btn__secondary light" href="{{ item.link.url }}" target="_blank">
+              Browse on {{ item.link.site }}
+            </a>
+          {% endif %}
+        </div>
+        <ul class="item__contents__metadata">
+          {% for item_metadata in item.metadata %}
+          <li>
+            <p class="muted">{{ item_metadata.label}}</p>
+            <h2>{{ item_metadata.content}}</h2>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    {% include twitter.html %}
+
+    {% include footer.html %}
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
