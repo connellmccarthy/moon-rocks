@@ -1,0 +1,21 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
+<div class="section hero large">
+  <h1>Moon Rocks</h1>
+  <p class="large">Moon Rocks is the audio / visual NFT series created by Canadian artist Connell McCarthy.</p>
+  <p class="large">The music and digital renders of each piece were crafted individually to create a unique and captivating experience.</p>
+</div>
+
+<div class="section slim">
+  {% for item in site.items %}
+    <img height="100" src="{{ item.thumbnail }}">
+    {{ item.title }}
+    <a href="{{ item.url }}">View more information</a>
+  {% endfor %}
+</div>
+
+{% include twitter.html %}

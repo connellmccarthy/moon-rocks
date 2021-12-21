@@ -1,0 +1,11 @@
+{% if site.data.homepage.announcement.display %}
+  <div class="section slim">
+    {% if site.data.homepage.announcement.link %}
+      <a href="{{ site.data.homepage.announcement.link.url }}" {% if site.data.homepage.announcement.link.external %}target="_blank"{% endif %}>
+    {% endif %}
+    <p>{{ site.data.homepage.announcement.content }}</p>
+    {% if site.data.homepage.announcement.link %}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
