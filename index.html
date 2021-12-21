@@ -5,17 +5,24 @@ permalink: /
 ---
 
 <div class="section hero large">
-  <h1>Moon Rocks</h1>
+  <h1>
+    Moon Rocks
+    &#8212;
+    Moon Rocks
+    &#8212;
+  </h1>
   <p class="large">Moon Rocks is the audio / visual NFT series created by Canadian artist Connell McCarthy.</p>
   <p class="large">The music and digital renders of each piece were crafted individually to create a unique and captivating experience.</p>
 </div>
 
 <div class="section slim grid">
-  {% for item in site.items %}
+  {% assign items = site.items | reverse %}
+  {% for item in items %}
     <div class="item__container">
       <div class="item__asset">
         <video id="asset-{{ item.slug }}" preload="auto" poster="{{ item.asset.poster }}" loop>
-          <source src="{{ item.asset.src }}" type="video/webm">
+          <source src="{{ item.asset.src.mp4 }}" type="video/mp4">
+          <source src="{{ item.asset.src.webm }}" type="video/webm">
         </video>
         {% include player-controls.html %}
       </div>

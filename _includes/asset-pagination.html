@@ -1,0 +1,24 @@
+<div class="section grid pad mobile-grid">
+  <div class="previous">
+    {% if page.previous %}
+      <a class="no-underline" href="{{ page.previous.url }}">
+        <i class="far fa-chevron-left" aria-hidden="true"></i>
+        Previous <span class="mobile-hide">piece</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <a class="no-underline" href="/">
+    <i class="fas fa-th-large" aria-hidden="true"></i>
+    Full collection
+  </a>
+
+  <div class="next">
+    {% if page.next %}
+      <a class="no-underline" href="{{ page.next.url }}">
+        Next <span class="mobile-hide">piece</span>
+        <i class="far fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    {% endif %}
+  </div>
+</div>

@@ -8,12 +8,15 @@
     {% include banner.html %}
     {% include logo.html %}
 
+    {% include asset-pagination.html %}
+
     {% assign item = page %}
     
     <div class="section slim grid two">
       <div class="item__asset border">
         <video id="asset-{{ item.slug }}" preload="auto" poster="{{ item.asset.poster }}" loop>
-          <source src="{{ item.asset.src }}" type="video/webm">
+          <source src="{{ item.asset.src.mp4 }}" type="video/mp4">
+          <source src="{{ item.asset.src.webm }}" type="video/webm">
         </video>
         {% include player-controls.html %}
       </div>
@@ -30,12 +33,22 @@
           {% endif %}
         </div>
         <ul class="item__contents__metadata">
-          {% for item_metadata in item.metadata %}
           <li>
-            <p class="muted">{{ item_metadata.label}}</p>
-            <h2>{{ item_metadata.content}}</h2>
+            <p class="muted">Duration</p>
+            <h2>{{ item.metadata.duration }}</h2>
           </li>
-          {% endfor %}
+          <li>
+            <p class="muted">BPM</p>
+            <h2>{{ item.metadata.bpm }}</h2>
+          </li>
+          <li>
+            <p class="muted">Key</p>
+            <h2>{{ item.metadata.key }}</h2>
+          </li>
+          <li>
+            <p class="muted">Material</p>
+            <h2 style="text-transform: capitalize;">{{ item.metadata.rock }}</h2>
+          </li>
         </ul>
       </div>
     </div>
