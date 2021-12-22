@@ -8,11 +8,12 @@ window.addEventListener('load', () => {
 });
 document.querySelectorAll('a').forEach(function(el) {
   el.addEventListener('click', (event) => {
-    if (el.host == window.host & el.getAttribute('target') != '_blank') {
+    if (el.host == window.location.host  && el.getAttribute('target') != '_blank') {
       event.preventDefault();
+      document.querySelector('.loading').classList.toggle('animated');
       setTimeout(function() {
-        document.querySelector('.loading').classList.remove('animated');
+        window.location = el.getAttribute('href');
       }, 500);
     }
   })
-})
+});
