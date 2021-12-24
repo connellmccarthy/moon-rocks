@@ -189,6 +189,10 @@ h1,h2,h3,h4 {
   border-bottom: 1px solid $color-border-dark;
   text-align: center;
 
+  &.no-border {
+    border-bottom: 0;
+  }
+
   &.slim {
     padding: 0;
   }
@@ -278,7 +282,7 @@ p {
 
 .item {
   &__container {
-    border-right: 1px solid $color-border-dark;  
+    border-right: 1px solid $color-border-dark;
     @media screen and (max-width: $break-mobile) {
       border-right: none;
       border-bottom: 1px solid $color-border-dark;
@@ -313,6 +317,11 @@ p {
   &__info {
     padding: 2em 0;
     border-top: 1px solid $color-border-dark;
+    border-bottom: 1px solid $color-border-dark;
+
+    @media screen and (max-width: $break-mobile) {
+      border-bottom: 0;
+    }
 
     h2,p {
       margin: 0.4em;

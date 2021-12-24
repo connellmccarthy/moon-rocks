@@ -24,7 +24,7 @@
         <div class="item__contents__main">
           <h1>{{ item.title }}</h1>
           <p class="muted">Created on {{ item.date_created | date: "%B %d, %Y" }}</p>
-          <p class="desc muted">{{ item.description }}</p>
+          <p class="desc muted">{{ content | remove: '<p>' | remove: '</p>' }}</p>
 
           {% if item.link %}
             <a class="btn btn__secondary light" href="{{ item.link.url }}" target="_blank">
